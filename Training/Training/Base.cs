@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.IE;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +20,9 @@ namespace Training
 		public virtual void BeforeClass()
 		{
 			driver = new ChromeDriver();
+			//driver = new FirefoxDriver();
+			//driver = new InternetExplorerDriver();
+			//driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 		}
 
 		[TearDown]
