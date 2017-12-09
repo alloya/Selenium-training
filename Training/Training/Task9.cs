@@ -56,7 +56,41 @@ namespace Training
 				Assert.True(ListIsSorted(zoneNames));
 			}
 		}
-		
+
+		[Test]
+		public void Task_9_2()
+		{
+			driver.Navigate().GoToUrl("http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones");
+			driver.FindElement(By.Name("username")).SendKeys("admin");
+			driver.FindElement(By.Name("password")).SendKeys("admin");
+			driver.FindElement(By.Name("login")).Click();
+
+			var countriesLinks = driver.FindElements(By.XPath("//*[@class='row']//td[3]/a"));
+
+			var countryNames = new List<string>();
+
+			foreach (var item in countriesLinks)
+			{
+				countryNames.Add(item.GetAttribute("href"));
+			}
+
+			foreach (var item in countryNames)
+			{
+				driver.Navigate().GoToUrl(item);
+
+				var list = new List<string>();
+
+				var countries = driver.FindElements(By.XPath("//*[@class='dataTable']//tr")).Count;
+
+				for (int i = 2; i < countries; i++)
+				{
+					list.Add(driver.FindElement(By.XPath($"//*[@class='dataTable']//tr[{i}]/td[3]/select/option[@selected='selected']")).Text);
+				}
+
+				Assert.True(ListIsSorted(list));
+			}
+		}
+
 		private bool ListIsSorted(List<string> firstList)
 		{
 			var copy = new List<string>();
