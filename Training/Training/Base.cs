@@ -21,12 +21,12 @@ namespace Training
 		[SetUp]
 		public virtual void BeforeClass()
 		{
-			driver = new ChromeDriver();
+			//driver = new ChromeDriver();
 			//driver = new FirefoxDriver();
 
-			//InternetExplorerOptions options = new InternetExplorerOptions();
-			//options.RequireWindowFocus = true;
-			//driver = new InternetExplorerDriver(options);
+			InternetExplorerOptions options = new InternetExplorerOptions();
+			options.RequireWindowFocus = true;
+			driver = new InternetExplorerDriver(options);
 
 			wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 			//driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
