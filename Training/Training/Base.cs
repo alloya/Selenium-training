@@ -24,9 +24,14 @@ namespace Training
 			//driver = new ChromeDriver();
 			//driver = new FirefoxDriver();
 
-			InternetExplorerOptions options = new InternetExplorerOptions();
-			options.RequireWindowFocus = true;
-			driver = new InternetExplorerDriver(options);
+			//InternetExplorerOptions options = new InternetExplorerOptions();
+			//options.RequireWindowFocus = true;
+			//driver = new InternetExplorerDriver(options);
+
+			FirefoxOptions options = new FirefoxOptions();
+			options.UseLegacyImplementation = false;
+			options.BrowserExecutableLocation = @"C:\Program Files\Mozilla Firefox\firefox.exe";
+			driver = new FirefoxDriver(options);
 
 			wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 			//driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
