@@ -52,7 +52,7 @@ namespace Training
 
 			driver.Navigate().GoToUrl(link);
 
-			var productName = driver.FindElement(By.ClassName("title")).Text;
+			var productName = driver.FindElement(By.CssSelector(".content h1")).Text;
 
 			var productOldPrice = driver.FindElement(By.ClassName("regular-price"));
 			var productNewPrice = driver.FindElement(By.ClassName("campaign-price"));
