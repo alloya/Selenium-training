@@ -81,6 +81,7 @@ namespace Training
 			Assert.True(newRedColor[1].Value.Equals("0"));
 			Assert.True(newRedColor[2].Value.Equals("0"));
 
+			Assert.True(name == productName);
 		}
 	}
 }
