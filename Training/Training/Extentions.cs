@@ -16,5 +16,15 @@ namespace Training
 				return false;
 			}
 		}
+
+		public static bool NumberOfElementsChanged(this IWebDriver driver, By locator, int count)
+		{
+			return driver.FindElements(locator).Count == count;
+		}
+
+		public static bool TextOfElementsChanged(this IWebDriver driver, By locator, string text)
+		{
+			return driver.FindElement(locator).Text == text;
+		}
 	}
 }

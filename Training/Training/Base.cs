@@ -1,7 +1,10 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Support.UI;
+
 using System;
 
 namespace Training
@@ -15,16 +18,16 @@ namespace Training
 		[SetUp]
 		public virtual void BeforeClass()
 		{
-			driver = new ChromeDriver();
+			//driver = new ChromeDriver();
 
 			//InternetExplorerOptions options = new InternetExplorerOptions();
 			//options.RequireWindowFocus = true;
 			//driver = new InternetExplorerDriver(options);
 
-			//FirefoxOptions options = new FirefoxOptions();
-			//options.UseLegacyImplementation = false;
-			//options.BrowserExecutableLocation = @"C:\Program Files\Mozilla Firefox\firefox.exe";
-			//driver = new FirefoxDriver(options);
+			FirefoxOptions options = new FirefoxOptions();
+			options.UseLegacyImplementation = false;
+			options.BrowserExecutableLocation = @"C:\Program Files\Mozilla Firefox\firefox.exe";
+			driver = new FirefoxDriver(options);
 
 			wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 			driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
