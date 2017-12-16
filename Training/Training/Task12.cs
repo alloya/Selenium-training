@@ -29,6 +29,7 @@ namespace Training
 
 			navigationMenu[1].Click();
 
+			wait.Until(ExpectedConditions.ElementToBeClickable(By.Name("manufacturer_id")));
 			var select = new SelectElement(driver.FindElement(By.Name("manufacturer_id")));
 			select.SelectByIndex(1);
 
