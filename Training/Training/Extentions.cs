@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using System;
 
 namespace Training
 {
@@ -17,14 +18,17 @@ namespace Training
 			}
 		}
 
-		public static bool NumberOfElementsChanged(this IWebDriver driver, By locator, int count)
+		public static bool IsElementNotPresent(this IWebDriver driver, By locator)
 		{
-			return driver.FindElements(locator).Count == count;
-		}
-
-		public static bool TextOfElementsChanged(this IWebDriver driver, By locator, string text)
-		{
-			return driver.FindElement(locator).Text == text;
+			try
+			{
+				driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
+				return driver.FindElements(locator).Count == 0; ;
+			}
+			finally
+			{
+				driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+			}
 		}
 	}
 }

@@ -29,20 +29,16 @@ namespace Training
 
 			if (driver.IsElementPresent(By.Id("order_confirmation-wrapper")))
 			{
+				var table = driver.FindElement(By.Id("order_confirmation-wrapper"));
 				var counter = driver.FindElements(By.CssSelector(".dataTable tr")).Count - 5;
 				do
 				{
 					wait.Until((IWebDriver d) => d.FindElements(By.CssSelector(".dataTable tr")).Count - 5 == counter);
-
 					driver.FindElement(By.Name("remove_cart_item")).Click();
-
 					counter--;
 				} while (counter > 0);
-
+				wait.Until(ExpectedConditions.StalenessOf(table));
 			}
-
 		}
-
-		
 	}
 }
