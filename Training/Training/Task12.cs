@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.IO;
+using System.Linq;
 
 namespace Training
 {
@@ -15,6 +16,8 @@ namespace Training
 			driver.FindElement(By.Name("username")).SendKeys("admin");
 			driver.FindElement(By.Name("password")).SendKeys("admin");
 			driver.FindElement(By.Name("login")).Click();
+
+			var tableRows = driver.FindElements(By.ClassName("row")).Count;
 
 			driver.FindElement(By.CssSelector("#content div a:last-child")).Click();
 
@@ -45,6 +48,10 @@ namespace Training
 			currency.SelectByIndex(2);
 
 			driver.FindElement(By.Name("save")).Click();
+
+			var updatedTableRows = driver.FindElements(By.ClassName("row")).Count;
+
+			Assert.True((tableRows + 1) == updatedTableRows);
 		}
 	}
 }

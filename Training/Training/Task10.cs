@@ -77,6 +77,9 @@ namespace Training
 			Assert.True(newRedColor[2].Value.Equals("0"));
 
 			Assert.True(name == productName);
+
+			Assert.True(productNewPriceValue == newPriceValue);
+			Assert.True(productOldPriceValue == oldPriceValue);
 		}
 	}
 }
