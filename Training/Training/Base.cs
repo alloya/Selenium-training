@@ -18,6 +18,10 @@ namespace Training
 		[SetUp]
 		public virtual void BeforeClass()
 		{
+			//ChromeOptions options = new ChromeOptions();
+			//options.SetLoggingPreference(LogType.Browser, LogLevel.All);
+			//driver = new ChromeDriver(options);
+
 			driver = new ChromeDriver();
 
 			//InternetExplorerOptions options = new InternetExplorerOptions();

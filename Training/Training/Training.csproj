@@ -61,6 +61,7 @@
     <Compile Include="Task12.cs" />
     <Compile Include="Task13.cs" />
     <Compile Include="Task14.cs" />
+    <Compile Include="Task17.cs" />
     <Compile Include="Task19\Application.cs" />
     <Compile Include="Task19\Pages\CartPage.cs" />
     <Compile Include="Task19\Pages\HeaderCart.cs" />
